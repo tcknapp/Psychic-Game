@@ -1,7 +1,7 @@
 
 
 var computerGuess = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-var userGuess = ['a ','b ','c ','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+var userGuess = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 var wins = 0;
 var losses = 0;
 var guessLeft = 9;
@@ -16,18 +16,18 @@ var psychicGuess = computerGuess[Math.floor(Math.random() * computerGuess.length
 
 console.log("Wins: " + wins + " Losses: " + losses + " GuessesLeft: " + guessLeft + " Guesses so far: " + guessSoFar + " Computer picked: " + psychicGuess);
 
-// Alerts the key the user pressed (userGuess).
+// Logs the key the user pressed (userGuess).
 console.log("User guess: " + userGuess);
 
-// Alerts the Computer's guess.
+// Logs the Computer's guess.
 console.log("Computer guess: " + computerGuess);
 
 
-//Starts "listening"
+// Starts "listening"
 document.onkeyup = function(event) {
         
 
-    // When user presses key, it records to userGuess, make sure guess valid, changes to lowercase
+    // When user presses key, it records to userGuess, make sure guess is valid, changes to lowercase
     var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
 
@@ -37,7 +37,7 @@ document.onkeyup = function(event) {
         guessLeft--;
     }
 
-    // if psychicGuess is correct, records win, resets guesses left 
+    // if userGuess is correct, records win, resets "guesses left"
     if (psychicGuess === userGuess) {
         wins++;
         console.log("You win!");
@@ -49,7 +49,7 @@ document.onkeyup = function(event) {
 
     }
 
-    // if user does not guess correctly, records loss, resets guesses and guesses left
+    // if user does not guess correctly, records loss, resets guesses and "guesses left"
     if (guessLeft === 0) {
         losses++;
         console.log("You lose!");
@@ -61,8 +61,8 @@ document.onkeyup = function(event) {
     }
 
     
-    //For HTML 
-    var html = "<h3>Guess what letter I\'m thinking of...</h3>" + "<h3>Wins: " + wins + "</h3>" + "<h3>Losses: " + losses + "</h3>" + "<h3>Guesses Left: " + guessLeft + "</h3></p>" + "<h3>Your guesses so far: " + guessSoFar + "</h3>";
+    // For answers in HTML 
+    var html = "<h3>Guess what letter I am thinking of...</h3>" + "<h3>Wins: " + wins + "</h3>" + "<h3>Losses: " + losses + "</h3>" + "<h3>Guesses Left: " + guessLeft + "</h3></p>" + "<h3>Your guesses so far: " + guessSoFar + "</h3>";
 
 	document.querySelector("#game").innerHTML = html;
 
